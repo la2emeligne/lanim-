@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.table.DefaultTableModel;
+
 public class DBUtil {
 	
 	private static final String URL="jdbc:mysql://localhost:3306/sakila?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -15,10 +17,11 @@ public class DBUtil {
 	private static final String PASSWORD="root";
 	
 	
-	public List<FilmText> afficherListe()
+	public DefaultTableModel afficherListe()
 	{
+		DefaultTableModel dm= (DefaultTableModel) film_text.getModel();
+
 		
-		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 		Connection	cx = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -29,7 +32,7 @@ public class DBUtil {
 			
 			ResultSet rs=ps.executeQuery();
 			
-			List<FilmText> listeOut= new ArrayList<FilmText>();
+			DefaultTableModel listeOut= new DefaultTableModel();
 
 			
 			while(rs.next())
@@ -38,23 +41,19 @@ public class DBUtil {
 				String titleOut=rs.getString("title");
 				String descrOut=rs.getString("description");				
 				FilmText ftOut=new FilmText(titleOut, descrOut);				
-				listeOut.add(ftOut);
+				listeOut.addd;
 				
 			}
 			
 			return listeOut;
 			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null; 
-		}	
+			
 	}
 	
 	
-	public void addFilm(FilmText ft)
+	/*  public void addFilm(FilmText ft)
 	{
-		try {
+		
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection	cx = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			
@@ -70,17 +69,14 @@ public class DBUtil {
 			System.out.println(verif);
 		
 			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		
 		
 	}
 	
 	public void updateFilm(FilmText ft)
 	{
-		try {
+		
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection	cx = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			
@@ -98,13 +94,9 @@ public class DBUtil {
 		
 
 
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		
-	}
+	}  */
 	
 		
 	}
