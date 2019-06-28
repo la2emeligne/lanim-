@@ -16,11 +16,12 @@ public class DBUtil {
 	private static final String USERNAME="root";
 	private static final String PASSWORD="root";
 	
-	//com 
-	public DefaultTableModel afficherListe()
+	
+	public DefaultTableModel afficherListe(DefaultTableModel dm) throws Exception
 	{
-		DefaultTableModel dm= (DefaultTableModel) film_text.getModel();
+		//DefaultTableModel dm= (DefaultTableModel) film_text.getModel();
 
+		
 		
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
@@ -32,20 +33,22 @@ public class DBUtil {
 			
 			ResultSet rs=ps.executeQuery();
 			
-			DefaultTableModel listeOut= new DefaultTableModel();
-
 			
 			while(rs.next())
 			{
-				int idOut=rs.getInt("film_id");	
-				String titleOut=rs.getString("title");
-				String descrOut=rs.getString("description");				
-				FilmText ftOut=new FilmText(titleOut, descrOut);				
-				listeOut.add;
+				String idOut= rs.getString(1);
+				String title=rs.getString(2);
+				String description=rs.getString(3);
+
+				
+				
+				Object [] rowTab= {idOut,title,description}; //tableau d'objets				
+
+				dm.addRow(rowTab);
 				
 			}
 			
-			return listeOut;
+			return dm;
 			
 			
 	}
