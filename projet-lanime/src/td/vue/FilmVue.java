@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+import td.controleur.Lecontroleur;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -54,6 +57,12 @@ public class FilmVue extends JFrame {
 				}
 			));
 		scrollPane.setViewportView(table);
+		// récupère la table
+		DefaultTableModel Tab = (DefaultTableModel) table.getModel();
+		// vide la table
+		Tab.setRowCount(0);
+		DefaultTableModel tableauPlein = Lecontroleur.afficherFilm(Tab);
+		table.setModel(tableauPlein);
 	}
 
 }
