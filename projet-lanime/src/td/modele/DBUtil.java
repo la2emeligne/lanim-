@@ -16,7 +16,7 @@ public class DBUtil {
 	private static final String USERNAME="root";
 	private static final String PASSWORD="root";
 	
-	
+	//com 
 	public DefaultTableModel afficherListe()
 	{
 		DefaultTableModel dm= (DefaultTableModel) film_text.getModel();
