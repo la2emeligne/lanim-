@@ -1,5 +1,16 @@
 package td.controleur;
 
+import javax.swing.table.DefaultTableModel;
+
 public class Lecontroleur {
- // il y a 
+ public DefaultTableModel  afficherFilm(DefaultTableModel tableEmpty) {
+	 try {
+	 DefaultTableModel dm = FilmText.afficherFilm(tableEmpty);
+	 return dm;
+	 }
+	 catch(Exception e) {
+		 e.printStackTrace();
+	 }
+	 
+ }
 }
