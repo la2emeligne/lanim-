@@ -17,6 +17,7 @@ public class FilmVue extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private Lecontroleur lecontroleur = new Lecontroleur();
 
 	/**
 	 * Launch the application.
@@ -61,7 +62,7 @@ public class FilmVue extends JFrame {
 		DefaultTableModel Tab = (DefaultTableModel) table.getModel();
 		// vide la table
 		Tab.setRowCount(0);
-		DefaultTableModel tableauPlein = Lecontroleur.afficherFilm(Tab);
+		DefaultTableModel tableauPlein = lecontroleur.afficherFilm(Tab);
 		table.setModel(tableauPlein);
 	}
 
