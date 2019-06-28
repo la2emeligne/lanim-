@@ -41,7 +41,7 @@ public class DBUtil {
 				String titleOut=rs.getString("title");
 				String descrOut=rs.getString("description");				
 				FilmText ftOut=new FilmText(titleOut, descrOut);				
-				listeOut.addd;
+				listeOut.add;
 				
 			}
 			
